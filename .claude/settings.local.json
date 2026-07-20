@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_figma_figma__get_design_context",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/5ed6093d-8dea-4c39-89bc-5784103ce558\" -o /Users/guna/Downloads/bdx-smarthomes/images/cta-bg.webp)",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/1fa6d835-aa83-4acb-b0fc-afe23cf12d92\" -o footer-logo.webp)",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/b2afd7a2-10d7-4d1a-987c-e2152b1a0087\" -o social-instagram.webp)",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/a45380bf-60ff-4b8a-b1f0-9ca595b11686\" -o social-facebook.webp)",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/77df5224-b243-4375-b0cd-fb02cdb5abf1\" -o social-youtube.webp)",
+      "Bash(curl -s \"https://www.figma.com/api/mcp/asset/5c9dbc2b-6c0a-46c4-b104-7b0e782445f0\" -o social-twitter.webp)",
+      "Bash(file /Users/guna/Downloads/bdx-smarthomes/images/social-*.webp)",
+      "Bash(xxd /Users/guna/Downloads/bdx-smarthomes/images/social-facebook.webp)",
+      "Bash(python3 *)",
+      "Bash(cp projects/nilla-residency.html /tmp/before.html)",
+      "Read(//tmp/**)",
+      "Bash(grep -v \"^$\")",
+      "Bash(sed -n '522,526p' /Users/guna/Downloads/bdx-smarthomes/style.css)",
+      "Bash(sed -n '635,639p' /Users/guna/Downloads/bdx-smarthomes/style.css)",
+      "Bash(sed -n '1120,1124p' /Users/guna/Downloads/bdx-smarthomes/style.css)",
+      "Bash(sed -n '1353,1357p' /Users/guna/Downloads/bdx-smarthomes/style.css)",
+      "Bash(sed -n '1589,1593p' /Users/guna/Downloads/bdx-smarthomes/style.css)"
+    ]
+  }
+}
