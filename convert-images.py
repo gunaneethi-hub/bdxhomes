@@ -9,6 +9,7 @@ import sys
 from PIL import Image
 
 QUALITY = 82
+MAX_DIM = 1800
 SUPPORTED = {".jpg", ".jpeg", ".png"}
 FOLDER = sys.argv[1] if len(sys.argv) > 1 else "images"
 
@@ -19,11 +20,15 @@ def convert(src_path):
         print(f"  skip  {os.path.basename(src_path)} (webp already exists)")
         return
     with Image.open(src_path) as img:
+        w, h = img.size
+        scale = MAX_DIM / max(w, h)
+        if scale < 1:
+            img = img.resize((round(w * scale), round(h * scale)), Image.LANCZOS)
         img.save(dst_path, "WEBP", quality=QUALITY, method=6)
     src_kb = os.path.getsize(src_path) // 1024
     dst_kb = os.path.getsize(dst_path) // 1024
     saving = (1 - dst_kb / src_kb) * 100 if src_kb else 0
-    print(f"  done  {os.path.basename(src_path)} → {os.path.basename(dst_path)}  {src_kb}KB → {dst_kb}KB  ({saving:.1f}% smaller)")
+    print(f"  done  {os.path.basename(src_path)} → {os.path.basename(dst_path)}  {w}x{h} → {img.size[0]}x{img.size[1]}  {src_kb}KB → {dst_kb}KB  ({saving:.1f}% smaller)")
 
 
 if not os.path.isdir(FOLDER):
