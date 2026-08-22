@@ -209,7 +209,7 @@ section[id] { scroll-margin-top: 60px; }
 
 .hero-content {
   flex: 1 1 auto;
-  max-width: 580px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -378,7 +378,7 @@ section[id] { scroll-margin-top: 60px; }
    ===================== */
 @media (max-width: 1100px) {
   .hero           { padding: 60px 40px; }
-  .hero-heading   { font-size: 54px; line-height: 66px; }
+  .hero-heading   { font-size: 46px; line-height: 56px; }
   .hero-feat-wrap { width: 360px; }
 }
 
@@ -389,7 +389,7 @@ section[id] { scroll-margin-top: 60px; }
     gap: 40px;
   }
   .hero-content   { max-width: 100%; }
-  .hero-heading   { font-size: 46px; line-height: 56px; }
+  .hero-heading   { font-size: 40px; line-height: 50px; }
   .hero-feat-wrap { width: 100%; max-width: 420px; align-self: center; }
 }
 
@@ -399,13 +399,13 @@ section[id] { scroll-margin-top: 60px; }
   .nav-hamburger        { display: flex; }
   .nav-right .btn-primary { display: none; }
 
-  .hero-heading { font-size: 36px; line-height: 46px; }
+  .hero-heading { font-size: 32px; line-height: 40px; }
   .hero-sub     { font-size: 17px; line-height: 28px; }
   .hero-cta     { font-size: 14px; padding: 16px 24px; }
 }
 
 @media (max-width: 480px) {
-  .hero-heading { font-size: 40px; line-height: 46px; }
+  .hero-heading { font-size: 30px; line-height: 38px; }
 }
 
 @media (max-width: 425px) {
