@@ -3,72 +3,162 @@
 
   <!-- Home -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/</loc>
+    <loc>https://bdxsmarthomes.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- All Projects -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/all-projects.html</loc>
+    <loc>https://bdxsmarthomes.com/all-projects.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Project Pages -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/nilla-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/ak-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/vn-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/am-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/rs-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/av-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/nila2-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/av-residency.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/av-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/bdx-nila.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/projects/rs2-residency.html</loc>
+    <loc>https://bdxsmarthomes.com/projects/ds-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/gj-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/gk-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/karthick-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/lm-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/nila-2-0.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/nila2-residency.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/nilla-residency.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/nt-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/pr-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/ra-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/rd-residence.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/rr-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/rs-residency.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/rs2-residency.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/sa-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/sk-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/vn-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxsmarthomes.com/projects/vn-residency.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Service Pages -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/service-construction.html</loc>
+    <loc>https://bdxsmarthomes.com/service-construction.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://YOUR-DOMAIN.com/service-architecture.html</loc>
+    <loc>https://bdxsmarthomes.com/service-architecture.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Careers -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/careers.html</loc>
+    <loc>https://bdxsmarthomes.com/careers.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://YOUR-DOMAIN.com/privacy-policy.html</loc>
+    <loc>https://bdxsmarthomes.com/privacy-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

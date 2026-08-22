@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ET4BSLLDC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7ET4BSLLDC');
+  </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="../favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RR Residence — Completed 5 BHK Home in Maraimalainagar | BDX Smart Homes</title>
-  <meta name="description" content="RR Residence — a 4850 sq.ft 5 BHK home in Maraimalainagar, Chennai by BDX Smart Homes." />
+  <title>RR Residence — 5 BHK Home in Maraimalainagar | BDX Smart Homes</title>
+  <meta name="description" content="RR Residence — a 4,850 sq.ft 5 BHK G+2 home completed in Maraimalainagar, Chennai by BDX Smart Homes in 2024. Spacious residential construction for large family living." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="BDX Smart Homes" />
+  <meta property="og:title" content="RR Residence — 5 BHK Home in Maraimalainagar | BDX Smart Homes" />
+  <meta property="og:description" content="RR Residence — a 4,850 sq.ft 5 BHK G+2 home completed in Maraimalainagar, Chennai by BDX Smart Homes in 2024. Spacious residential construction for large family living." />
+  <meta property="og:url" content="https://bdxsmarthomes.com/projects/rr-res.html" />
+  <meta property="og:image" content="https://bdxsmarthomes.com/images/placeholder-project.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RR Residence — 5 BHK Home in Maraimalainagar | BDX Smart Homes" />
+  <meta name="twitter:description" content="RR Residence — a 4,850 sq.ft 5 BHK G+2 home completed in Maraimalainagar, Chennai by BDX Smart Homes in 2024. Spacious residential construction for large family living." />
+  <meta name="twitter:image" content="https://bdxsmarthomes.com/images/placeholder-project.svg" />
+  <link rel="canonical" href="https://bdxsmarthomes.com/projects/rr-res.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bdxsmarthomes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "All Projects", "item": "https://bdxsmarthomes.com/all-projects.html" },
+      { "@type": "ListItem", "position": 3, "name": "RR Residence", "item": "https://bdxsmarthomes.com/projects/rr-res.html" }
+    ]
+  }
+  </script>
 </head>
 <body class="proj-page">
 
@@ -182,6 +212,9 @@
       </button>
       <h3 class="contact-form-title">Start Your Journey with Us!</h3>
       <form class="contact-form" id="projContactForm" novalidate>
+          <input type="hidden" name="form_type" value="lead" />
+          <input type="hidden" name="source_page" value="Project — RR Residence" />
+          <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="pcf-name">Full Name</label>
           <input id="pcf-name" type="text" placeholder="Enter your full name" />
@@ -267,6 +300,7 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="../form-submit.js"></script>
   <script>
     lucide.createIcons();
     (function () {
@@ -341,6 +375,7 @@
         if (!emailVal) { showError(email, 'Email address is required.'); valid = false; }
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError(email, 'Enter a valid email address.'); valid = false; }
         if (!valid) return;
+        window.bdxSubmitFormLead(form);
         form.innerHTML = `<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
         lucide.createIcons();
       });

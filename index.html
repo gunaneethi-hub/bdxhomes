@@ -2,22 +2,30 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ET4BSLLDC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7ET4BSLLDC');
+  </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BDX Smart Homes — Build Your Dream Home in Chennai</title>
-  <meta name="description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture design, plot-to-home construction, and interiors. 100+ homes delivered, 10-year structural warranty. Book a free consultation today." />
+  <meta name="description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture, construction and interiors. 100+ homes delivered, 10-year warranty." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BDX Smart Homes" />
   <meta property="og:title" content="BDX Smart Homes — Build Your Dream Home in Chennai" />
-  <meta property="og:description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture design, plot-to-home construction, and interiors. 100+ homes delivered, 10-year structural warranty. Book a free consultation today." />
-  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
-  <meta property="og:image" content="https://YOUR-DOMAIN.com/images/portfolio-nilla.webp" />
+  <meta property="og:description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture, construction and interiors. 100+ homes delivered, 10-year warranty." />
+  <meta property="og:url" content="https://bdxsmarthomes.com/" />
+  <meta property="og:image" content="https://bdxsmarthomes.com/images/portfolio-nilla.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BDX Smart Homes — Build Your Dream Home in Chennai" />
-  <meta name="twitter:description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture design, plot-to-home construction, and interiors. 100+ homes delivered, 10-year structural warranty. Book a free consultation today." />
-  <meta name="twitter:image" content="https://YOUR-DOMAIN.com/images/portfolio-nilla.webp" />
-  <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
+  <meta name="twitter:description" content="BDX Smart Homes — South Chennai's trusted residential construction company. Architecture, construction and interiors. 100+ homes delivered, 10-year warranty." />
+  <meta name="twitter:image" content="https://bdxsmarthomes.com/images/portfolio-nilla.webp" />
+  <link rel="canonical" href="https://bdxsmarthomes.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -28,11 +36,11 @@
   {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
-    "@id": "https://YOUR-DOMAIN.com/#business",
+    "@id": "https://bdxsmarthomes.com/#business",
     "name": "BDX Smart Homes",
-    "url": "https://YOUR-DOMAIN.com/",
-    "logo": "https://YOUR-DOMAIN.com/images/footer-logo.webp",
-    "image": "https://YOUR-DOMAIN.com/images/portfolio-nilla.webp",
+    "url": "https://bdxsmarthomes.com/",
+    "logo": "https://bdxsmarthomes.com/images/footer-logo.webp",
+    "image": "https://bdxsmarthomes.com/images/portfolio-nilla.webp",
     "description": "South Chennai's trusted residential construction company. Architecture design, plot-to-home construction, and interiors. 100+ homes delivered, 10-year structural warranty.",
     "telephone": "+919150007269",
     "email": "admin@bdxhomes.com",
@@ -206,7 +214,7 @@
           </div>
 
           <!-- Slide 2: VN Residency -->
-          <div class="hero-feat-slide" style="background-image:url('images/portfolio-vn.webp')">
+          <div class="hero-feat-slide" style="background-image:url('images/vn-res/portfolio-vn.webp')">
             <div class="hero-feat-gradient"></div>
             <div class="hero-feat-info">
               <div class="hero-feat-name">VN Residency</div>
@@ -356,7 +364,7 @@
         </div>
 
         <div class="proj-card">
-          <img src="images/portfolio-vn.webp"
+          <img src="images/vn-res/portfolio-vn.webp"
             alt="VN Residency — completed house construction in Athanur, South Chennai by BDX Smart Homes"
             class="proj-img" />
           <div class="proj-overlay">
@@ -845,6 +853,9 @@
       <div class="contact-form-card">
         <h3 class="contact-form-title">Start Your Journey with Us!</h3>
         <form class="contact-form" id="contactForm" novalidate>
+          <input type="hidden" name="form_type" value="lead" />
+          <input type="hidden" name="source_page" value="Homepage — Contact Section" />
+          <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
           <div class="form-field">
             <label for="cf-name">Full Name</label>
             <input id="cf-name" type="text" placeholder="Enter your full name" />
@@ -944,6 +955,9 @@
       </button>
       <h3 class="contact-form-title">Start Your Journey with Us!</h3>
       <form class="contact-form" id="heroContactForm" novalidate>
+        <input type="hidden" name="form_type" value="lead" />
+        <input type="hidden" name="source_page" value="Homepage — Hero" />
+        <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="hcf-name">Full Name</label>
           <input id="hcf-name" type="text" placeholder="Enter your full name" />
@@ -1034,6 +1048,7 @@
   </div>
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="form-submit.js"></script>
   <script src="main.js"></script>
   <script src="transitions.js"></script>
   <script>

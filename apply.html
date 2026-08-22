@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ET4BSLLDC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7ET4BSLLDC');
+  </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +19,20 @@
   <meta property="og:site_name" content="BDX Smart Homes" />
   <meta property="og:title" content="Join BDX Smart Homes — Apply Now" />
   <meta property="og:description" content="Join the BDX Smart Homes team in Chennai. Apply now for open roles in construction, architecture, design and sales." />
-  <meta property="og:url" content="https://YOUR-DOMAIN.com/apply.html" />
-  <meta property="og:image" content="https://YOUR-DOMAIN.com/images/portfolio-nilla.webp" />
+  <meta property="og:url" content="https://bdxsmarthomes.com/apply.html" />
+  <meta property="og:image" content="https://bdxsmarthomes.com/images/portfolio-nilla.webp" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Join BDX Smart Homes — Apply Now" />
   <meta name="twitter:description" content="Join the BDX Smart Homes team in Chennai. Apply now for open roles in construction, architecture, design and sales." />
-  <meta name="twitter:image" content="https://YOUR-DOMAIN.com/images/portfolio-nilla.webp" />
-  <link rel="canonical" href="https://YOUR-DOMAIN.com/apply.html" />
+  <meta name="twitter:image" content="https://bdxsmarthomes.com/images/portfolio-nilla.webp" />
+  <link rel="canonical" href="https://bdxsmarthomes.com/apply.html" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://YOUR-DOMAIN.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Apply Now", "item": "https://YOUR-DOMAIN.com/apply.html" }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://bdxsmarthomes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Apply Now", "item": "https://bdxsmarthomes.com/apply.html" }
     ]
   }
   </script>
@@ -138,6 +146,9 @@
       <p class="apply-sub">We're growing fast and looking for talented people in construction, architecture, design and sales. Fill in your details and we'll get back to you within 48 hours.</p>
 
       <form class="contact-form" id="applyForm" novalidate>
+        <input type="hidden" name="form_type" value="application" />
+        <input type="hidden" name="source_page" value="Apply Page" />
+        <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="af-name">Full Name <span class="form-required">*</span></label>
           <input id="af-name" type="text" placeholder="Enter your full name" required />
@@ -210,6 +221,7 @@
   </a>
 
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="form-submit.js"></script>
   <script>
     lucide.createIcons();
 
@@ -234,7 +246,7 @@
       if (prevLabel) prevLabel.style.borderColor = '';
       let valid = true;
 
-      const name  = form.querySelector('[type="text"]');
+      const name  = form.querySelector('[type="text"]:not([name="website"])');
       const phone = form.querySelector('[type="tel"]');
       const email = form.querySelector('[type="email"]');
 
@@ -266,8 +278,30 @@
 
       if (!valid) return;
 
-      form.innerHTML = '<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. Our team will reach out within 48 hours.</p></div>';
-      lucide.createIcons();
+      const roleField = form.querySelector('#af-role');
+      const finish = () => {
+        form.innerHTML = '<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. Our team will reach out within 48 hours.</p></div>';
+        lucide.createIcons();
+      };
+
+      const file = resume.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+        window.bdxSubmitLead({
+          form_type: 'application',
+          source_page: 'Apply Page',
+          name: name.value.trim(),
+          phone: phone.value.trim(),
+          email: emailVal,
+          role: roleField ? roleField.value : '',
+          resume_name: file.name,
+          resume_type: file.type,
+          resume_data: reader.result
+        });
+        finish();
+      };
+      reader.onerror = finish;
+      reader.readAsDataURL(file);
     });
 
     function addError(field, msg) {

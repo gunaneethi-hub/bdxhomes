@@ -224,12 +224,14 @@ function showSuccess(form) {
   lucide.createIcons();
 }
 
-handleFormSubmit(document.getElementById('heroContactForm'), () =>
-  showSuccess(document.getElementById('heroContactForm'))
-);
-handleFormSubmit(document.getElementById('contactForm'), () =>
-  showSuccess(document.getElementById('contactForm'))
-);
+handleFormSubmit(document.getElementById('heroContactForm'), () => {
+  window.bdxSubmitFormLead(document.getElementById('heroContactForm'));
+  showSuccess(document.getElementById('heroContactForm'));
+});
+handleFormSubmit(document.getElementById('contactForm'), () => {
+  window.bdxSubmitFormLead(document.getElementById('contactForm'));
+  showSuccess(document.getElementById('contactForm'));
+});
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn => {
