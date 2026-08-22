@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /apply.html
 
-Sitemap: https://bdxsmarthomes.com/sitemap.xml
+Sitemap: https://bdxhomes.com/sitemap.xml
