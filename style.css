@@ -209,10 +209,10 @@ section[id] { scroll-margin-top: 60px; }
 
 .hero-content {
   flex: 1 1 auto;
-  max-width: 700px;
+  max-width: 740px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 58px;
 }
 
 .hero-top { display: flex; flex-direction: column; gap: 20px; }
@@ -246,9 +246,9 @@ section[id] { scroll-margin-top: 60px; }
 
 .hero-heading {
   font-family: var(--font-heading);
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 700;
-  line-height: 78px;
+  line-height: 74px;
   color: var(--color-dark);
 }
 .hero-heading .gold {
@@ -262,7 +262,7 @@ section[id] { scroll-margin-top: 60px; }
   font-weight: 400;
   line-height: 32px;
   color: rgba(0,0,0,0.9);
-  max-width: 540px;
+  max-width: 740px;
 }
 
 .hero-cta {
@@ -434,6 +434,8 @@ section[id] { scroll-margin-top: 60px; }
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .stats-title {
