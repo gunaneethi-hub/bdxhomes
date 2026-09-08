@@ -36,6 +36,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bdxhomes.com/projects/am-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bdxhomes.com/projects/av-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -47,6 +52,11 @@
   </url>
   <url>
     <loc>https://bdxhomes.com/projects/ds-res.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bdxhomes.com/projects/gj-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -66,12 +76,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bdxhomes.com/projects/nilla-residency.html</loc>
+    <loc>https://bdxhomes.com/projects/nt-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bdxhomes.com/projects/nt-res.html</loc>
+    <loc>https://bdxhomes.com/projects/pr-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,12 +96,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bdxhomes.com/projects/rs-residency.html</loc>
+    <loc>https://bdxhomes.com/projects/rr-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bdxhomes.com/projects/rs2-residency.html</loc>
+    <loc>https://bdxhomes.com/projects/sa-res.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -102,11 +112,6 @@
   </url>
   <url>
     <loc>https://bdxhomes.com/projects/vn-res.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bdxhomes.com/projects/vn-residency.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
