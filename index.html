@@ -218,64 +218,10 @@
         </button>
       </div>
 
-      <!-- Featured project card -->
+      <!-- Featured project card: slides are picked at random from a pool of completed projects (see script near end of body) -->
       <div class="hero-feat-wrap">
-        <div class="hero-feat-card">
-
-          <!-- Slide 1: SK Residence -->
-          <div class="hero-feat-slide active" style="background-image:url('images/portfolio-sk-res.webp')">
-            <div class="hero-feat-gradient"></div>
-            <div class="hero-feat-info">
-              <div class="hero-feat-name">SK Residence</div>
-              <div class="hero-feat-meta">
-                <span>Kayarambedu</span>
-                <span class="feat-sep">·</span>
-                <span>5 BHK &middot; 2,490 sq ft</span>
-              </div>
-              <a href="projects/sk-res.html" class="hero-feat-link">
-                View Project <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide 2: BDX Nila -->
-          <div class="hero-feat-slide" style="background-image:url('images/portfolio-bdx-nila.webp')">
-            <div class="hero-feat-gradient"></div>
-            <div class="hero-feat-info">
-              <div class="hero-feat-name">BDX Nila</div>
-              <div class="hero-feat-meta">
-                <span>Guduvanchery</span>
-                <span class="feat-sep">·</span>
-                <span>3 BHK &middot; 1,759 sq ft</span>
-              </div>
-              <a href="projects/bdx-nila.html" class="hero-feat-link">
-                View Project <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide 3: VN Residence -->
-          <div class="hero-feat-slide" style="background-image:url('images/vn-res/vn-res-facade.webp')">
-            <div class="hero-feat-gradient"></div>
-            <div class="hero-feat-info">
-              <div class="hero-feat-name">VN Residence</div>
-              <div class="hero-feat-meta">
-                <span>Guduvanchery</span>
-                <span class="feat-sep">·</span>
-                <span>6 BHK &middot; 3,293 sq ft</span>
-              </div>
-              <a href="projects/vn-res.html" class="hero-feat-link">
-                View Project <i data-lucide="arrow-right"></i>
-              </a>
-            </div>
-          </div>
-
-        </div>
-        <div class="hero-feat-dots">
-          <div class="hero-feat-dot active"></div>
-          <div class="hero-feat-dot"></div>
-          <div class="hero-feat-dot"></div>
-        </div>
+        <div class="hero-feat-card" id="heroFeatCard"></div>
+        <div class="hero-feat-dots" id="heroFeatDots"></div>
       </div>
 
     </div>
@@ -376,72 +322,58 @@
       <div class="portfolio-grid">
 
         <div class="proj-card">
-          <img src="images/portfolio-sk-res.webp"
-            alt="SK Residence — completed 5 BHK home in Kayarambedu, Chennai by BDX Smart Homes"
+          <img src="images/sa-res/sa-res-facade.webp"
+            alt="SA Residence — completed 3 BHK home in Guduvanchery, Chennai by BDX Smart Homes"
             class="proj-img" />
           <div class="proj-overlay">
             <div class="proj-info">
-              <h3 class="proj-name">SK Residence</h3>
-              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Kayarambedu</p>
-            </div>
-          </div>
-          <a href="projects/sk-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
-          <span class="proj-chip proj-chip--done">Completed</span>
-        </div>
-
-        <div class="proj-card">
-          <img src="images/portfolio-bdx-nila.webp"
-            alt="BDX Nila — completed 3 BHK home in Guduvanchery, Chennai by BDX Smart Homes"
-            class="proj-img" />
-          <div class="proj-overlay">
-            <div class="proj-info">
-              <h3 class="proj-name">BDX Nila</h3>
+              <h3 class="proj-name">SA Residence</h3>
               <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Guduvanchery</p>
             </div>
           </div>
-          <a href="projects/bdx-nila.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
+          <a href="projects/sa-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
           <span class="proj-chip proj-chip--done">Completed</span>
         </div>
 
         <div class="proj-card">
-          <img src="images/portfolio-av-res.webp"
-            alt="AV Residence — completed 5 BHK home in Guduvanchery, Chennai by BDX Smart Homes"
+          <img src="images/gk-res/gk-res-facade.webp"
+            alt="GK Residence — completed 3 BHK home in Guduvanchery, Chennai by BDX Smart Homes"
             class="proj-img" />
           <div class="proj-overlay">
             <div class="proj-info">
-              <h3 class="proj-name">AV Residence</h3>
+              <h3 class="proj-name">GK Residence</h3>
               <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Guduvanchery</p>
             </div>
           </div>
-          <a href="projects/av-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
+          <a href="projects/gk-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
           <span class="proj-chip proj-chip--done">Completed</span>
         </div>
 
         <div class="proj-card">
-          <img src="images/portfolio-nila-2-0.webp"
-            alt="Nila 2.0 — completed 4 BHK home in Thangappapuram, Chennai by BDX Smart Homes"
+          <img src="images/karthick-res/kr-res-facade.webp"
+            alt="Karthick Residence — completed 3 BHK home in Guduvanchery, Chennai by BDX Smart Homes"
             class="proj-img" />
           <div class="proj-overlay">
             <div class="proj-info">
-              <h3 class="proj-name">Nila 2.0</h3>
-              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Thangappapuram</p>
+              <h3 class="proj-name">Karthick Residence</h3>
+              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Guduvanchery</p>
             </div>
           </div>
-          <a href="projects/nila-2-0.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
+          <a href="projects/karthick-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
           <span class="proj-chip proj-chip--done">Completed</span>
         </div>
 
         <div class="proj-card">
-          <img src="images/ak-res/ak-res-facade.webp"
-            alt="AK Residence — completed 4 BHK home in Kannivakkam, Chennai by BDX Smart Homes"
+          <img src="images/am-res/am-res-facade.webp"
+            alt="AM Residence — completed 3 BHK home in Thirupathoor, Chennai by BDX Smart Homes"
             class="proj-img" />
           <div class="proj-overlay">
             <div class="proj-info">
-              <h3 class="proj-name">AK Residence</h3>
-              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Kannivakkam</p>
+              <h3 class="proj-name">AM Residence</h3>
+              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Thirupathoor</p>
             </div>
           </div>
-          <a href="projects/ak-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
+          <a href="projects/am-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
           <span class="proj-chip proj-chip--done">Completed</span>
         </div>
 
@@ -456,6 +388,20 @@
             </div>
           </div>
           <a href="projects/vn-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
+          <span class="proj-chip proj-chip--done">Completed</span>
+        </div>
+
+        <div class="proj-card">
+          <img src="images/portfolio-sk-res.webp"
+            alt="SK Residence — completed 5 BHK home in Kayarambedu, Chennai by BDX Smart Homes"
+            class="proj-img" />
+          <div class="proj-overlay">
+            <div class="proj-info">
+              <h3 class="proj-name">SK Residence</h3>
+              <p class="proj-location"><i data-lucide="map-pin" aria-hidden="true"></i> Kayarambedu</p>
+            </div>
+          </div>
+          <a href="projects/sk-res.html" class="proj-hover-btn">View This Project <i data-lucide="arrow-right" class="btn-arrow"></i></a>
           <span class="proj-chip proj-chip--done">Completed</span>
         </div>
 
@@ -598,7 +544,7 @@
           <!-- Card 1 -->
           <div class="testi-card">
             <div class="testi-photo">
-              <img src="images/testi-house1.webp" alt="Nilla Residency — BDX Smart Homes project" />
+              <img src="images/portfolio-sk-res.webp" alt="SK Residence — BDX Smart Homes project" />
             </div>
             <div class="testi-content">
               <div class="testi-top">
@@ -609,20 +555,18 @@
                   <i data-lucide="star" class="star-icon"></i>
                   <i data-lucide="star" class="star-icon"></i>
                 </div>
-                <blockquote class="testi-quote">"We are truly thankful to BDX Smart Homes team for making our dream home
-                  a reality. From the start, we imagined a peaceful, Sea-themed house that felt both beautiful and
-                  personal and they brought that idea to life with great care and creativity. Every part of the house,
-                  from the open mezzanine study to the sunken living area and the bright courtyard, was carefully
-                  designed to make our daily life more comfortable and happy. The blue-and-white jaali on the front of
-                  the house, especially when it's lit up at night, gives our home a special charm. Thank you to the
-                  entire BDX team."</blockquote>
+                <blockquote class="testi-quote">"I want to sincerely thank the BDX team for the incredible work on my
+                  home. They executed the construction precisely as per the drawings, using high-quality materials and
+                  excellent workmanship. Every element was brought to reality with care and precision. I'm extremely
+                  happy with how beautifully everything came together and the integration of advanced technology has
+                  made the home even more functional, modern, and future-ready."</blockquote>
               </div>
               <div class="testi-author">
-                <img src="images/testi-avatar.webp" alt="Ravindra Bharathi S" class="testi-avatar" />
+                <div class="testi-avatar-placeholder">SI</div>
                 <div class="testi-author-info">
-                  <strong>Ravindra Bharathi S</strong>
-                  <span>Senior Software Engineer · OMR, Chennai</span>
-                  <span class="testi-project">3 BHK Home · 2,400 sq.ft</span>
+                  <strong>Srikanth Inbadasan</strong>
+                  <span>Google Review · Kayarambedu, Chennai</span>
+                  <span class="testi-project">5 BHK Home · 2,490 sq.ft</span>
                 </div>
               </div>
             </div>
@@ -631,7 +575,7 @@
           <!-- Card 2 -->
           <div class="testi-card">
             <div class="testi-photo">
-              <img src="images/testi-house2.webp" alt="VN Residency — BDX Smart Homes project" />
+              <img src="images/portfolio-av-res.webp" alt="AV Residence — BDX Smart Homes project" />
             </div>
             <div class="testi-content">
               <div class="testi-top">
@@ -642,17 +586,18 @@
                   <i data-lucide="star" class="star-icon"></i>
                   <i data-lucide="star" class="star-icon"></i>
                 </div>
-                <blockquote class="testi-quote">"BDX Smart Homes delivered our 4 BHK house on schedule with zero
-                  surprises. Transparent costing and weekly site updates kept us completely stress-free. The material
-                  quality and finishing exceeded our expectations. Highly recommended for anyone building in South
-                  Chennai."</blockquote>
+                <blockquote class="testi-quote">"We're really happy with the construction by BDX Smart Homes. The team
+                  clearly understood our requirements and executed everything with care and clarity. The project
+                  tracking system and VR walkthrough gave us great confidence from the start. The house has good light,
+                  ventilation & the overall finishing matches exactly what was discussed at the beginning. Truly
+                  satisfied with their work and professionalism."</blockquote>
               </div>
               <div class="testi-author">
-                <div class="testi-avatar-placeholder">AK</div>
+                <div class="testi-avatar-placeholder">AT</div>
                 <div class="testi-author-info">
-                  <strong>Anand Kumar</strong>
-                  <span>Business Owner · Tambaram, Chennai</span>
-                  <span class="testi-project">4 BHK Home · 2,800 sq.ft</span>
+                  <strong>Avinash Tikana</strong>
+                  <span>Google Review · Guduvanchery, Chennai</span>
+                  <span class="testi-project">5 BHK Home · 4,061 sq.ft</span>
                 </div>
               </div>
             </div>
@@ -661,7 +606,7 @@
           <!-- Card 3 -->
           <div class="testi-card">
             <div class="testi-photo">
-              <img src="images/testi-house1.webp" alt="RS Residency — BDX Smart Homes project" />
+              <img src="images/portfolio-rd.webp" alt="RD Residence — BDX Smart Homes project" />
             </div>
             <div class="testi-content">
               <div class="testi-top">
@@ -672,17 +617,78 @@
                   <i data-lucide="star" class="star-icon"></i>
                   <i data-lucide="star" class="star-icon"></i>
                 </div>
-                <blockquote class="testi-quote">"The Vaastu compliance and attention to detail in our home is
-                  exceptional. BDX's team was always reachable and daily photo updates gave us complete confidence. Our
-                  modular kitchen and interiors turned out beautifully. We couldn't have asked for a better builder in
-                  Chennai."</blockquote>
+                <blockquote class="testi-quote">"We are truly thankful for crafting a home that feels so deeply like
+                  ours. Our home is a perfect blend of calm, light and thoughtful design. The pastel tones, minimal
+                  elements and well planned ventilation make every space feel peaceful and alive. This home reflects
+                  exactly who we are — simple, balanced and full of warmth."</blockquote>
               </div>
               <div class="testi-author">
-                <div class="testi-avatar-placeholder">PV</div>
+                <div class="testi-avatar-placeholder">DR</div>
                 <div class="testi-author-info">
-                  <strong>Priya Venkatesh</strong>
-                  <span>Doctor · Guduvanchery, Chennai</span>
-                  <span class="testi-project">3 BHK Home · 2,200 sq.ft</span>
+                  <strong>Dhana Lakshmi Ragunath</strong>
+                  <span>Google Review · Madhavaram, Chennai</span>
+                  <span class="testi-project">2 BHK Home · 928 sq.ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="testi-card">
+            <div class="testi-photo">
+              <img src="images/portfolio-bdx-nila.webp" alt="BDX Nila — BDX Smart Homes project" />
+            </div>
+            <div class="testi-content">
+              <div class="testi-top">
+                <div class="testi-stars">
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                </div>
+                <blockquote class="testi-quote">"We are genuinely excited and deeply thankful to BDX Smart Homes for
+                  bringing our dream home. This contemporary eclectic-style villa has been planned with meticulous
+                  attention to detail, ensuring excellent natural lighting and cross-ventilation throughout. Every
+                  element of the architectural planning reflects a perfect balance of function, beauty, and personal
+                  comfort."</blockquote>
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar-placeholder">VA</div>
+                <div class="testi-author-info">
+                  <strong>Vinith Ashwin</strong>
+                  <span>Google Review · Guduvanchery, Chennai</span>
+                  <span class="testi-project">3 BHK Home · 1,759 sq.ft</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="testi-card">
+            <div class="testi-photo">
+              <img src="images/vn-res/vn-res-facade.webp" alt="VN Residence — BDX Smart Homes project" />
+            </div>
+            <div class="testi-content">
+              <div class="testi-top">
+                <div class="testi-stars">
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                  <i data-lucide="star" class="star-icon"></i>
+                </div>
+                <blockquote class="testi-quote">"Our experience with BDX Smart Homes has been absolutely amazing! We
+                  looked around and explored a lot of options, but BDX really stood out—and now we're so glad we chose
+                  them. The thoughtful layout—with a rental-ready ground floor and private upper floors fits our needs
+                  perfectly. The craftsmanship and quality materials stand out in every room."</blockquote>
+              </div>
+              <div class="testi-author">
+                <div class="testi-avatar-placeholder">VR</div>
+                <div class="testi-author-info">
+                  <strong>Vignesh Rathinavelu</strong>
+                  <span>Google Review · Guduvanchery, Chennai</span>
+                  <span class="testi-project">6 BHK Home · 3,293 sq.ft</span>
                 </div>
               </div>
             </div>
@@ -697,6 +703,8 @@
           <button class="testi-dot active" data-index="0"></button>
           <button class="testi-dot" data-index="1"></button>
           <button class="testi-dot" data-index="2"></button>
+          <button class="testi-dot" data-index="3"></button>
+          <button class="testi-dot" data-index="4"></button>
         </div>
         <div class="testi-nav">
           <button class="testi-prev" id="testiPrev" aria-label="Previous testimonial">
@@ -853,8 +861,8 @@
           <img src="images/founder-rajasree.webp" alt="Rajasree Rajan, Co-Founder & CEO of BDX Smart Homes Chennai"
             class="founder-img" />
           <div class="founder-overlay">
-            <h3 class="founder-name">Rajasree Rajan, MBA Finance</h3>
-            <p class="founder-role">Co-Founder &amp; CEO</p>
+            <h3 class="founder-name">Rajasree Rajan, MBA Finance.</h3>
+            <p class="founder-role">Co-Founder &amp; Director</p>
           </div>
         </div>
 
@@ -1118,8 +1126,63 @@
   <script src="transitions.js"></script>
   <script>
     (function () {
-      var slides = document.querySelectorAll('.hero-feat-slide');
-      var dots   = document.querySelectorAll('.hero-feat-dot');
+      // Pool of completed projects with a real facade photo — 3 are picked at random on each page load
+      // instead of always showing the same fixed three.
+      var featPool = [
+        { name: "SK Residence", location: "Kayarambedu", config: "5 BHK", sqft: "2,490", img: "images/portfolio-sk-res.webp", link: "projects/sk-res.html" },
+        { name: "BDX Nila", location: "Guduvanchery", config: "3 BHK", sqft: "1,759", img: "images/portfolio-bdx-nila.webp", link: "projects/bdx-nila.html" },
+        { name: "AV Residence", location: "Guduvanchery", config: "5 BHK", sqft: "4,061", img: "images/portfolio-av-res.webp", link: "projects/av-res.html" },
+        { name: "Nila 2.0", location: "Thangappapuram", config: "4 BHK", sqft: "2,481", img: "images/portfolio-nila-2-0.webp", link: "projects/nila-2-0.html" },
+        { name: "AK Residence", location: "Kannivakkam", config: "4 BHK", sqft: "3,392", img: "images/ak-res/ak-res-facade.webp", link: "projects/ak-res.html" },
+        { name: "DS Residence", location: "Kannivakkam", config: "3 BHK", sqft: "1,764", img: "images/ds-res/ds-res-facade.webp", link: "projects/ds-res.html" },
+        { name: "VN Residence", location: "Guduvanchery", config: "6 BHK", sqft: "3,293", img: "images/vn-res/vn-res-facade.webp", link: "projects/vn-res.html" },
+        { name: "RA Residence", location: "Urapakkam", config: "3 BHK", sqft: "2,022", img: "images/ra-res/ra-res-facade.webp", link: "projects/ra-res.html" },
+        { name: "NT Residence", location: "Villupuram", config: "3 BHK", sqft: "2,415", img: "images/nt-res/nt-res-facade.webp", link: "projects/nt-res.html" },
+        { name: "SA Residence", location: "Guduvanchery", config: "3 BHK", sqft: "8,000", img: "images/sa-res/sa-res-facade.webp", link: "projects/sa-res.html" },
+        { name: "Karthick Residence", location: "Guduvanchery", config: "3 BHK", sqft: "3,200", img: "images/karthick-res/kr-res-facade.webp", link: "projects/karthick-res.html" },
+        { name: "GK Residence", location: "Guduvanchery", config: "3 BHK", sqft: "2,500", img: "images/gk-res/gk-res-facade.webp", link: "projects/gk-res.html" },
+        { name: "AM Residence", location: "Thirupathoor", config: "3 BHK", sqft: "2,600", img: "images/am-res/am-res-facade.webp", link: "projects/am-res.html" },
+        { name: "PR Residence", location: "Maraimalainagar", config: "5 BHK", sqft: "4,850", img: "images/pr-res/pr-res-facade.webp", link: "projects/pr-res.html" },
+        { name: "RR Residence", location: "Maraimalainagar", config: "5 BHK", sqft: "4,850", img: "images/rr-res/rr-res-facade.webp", link: "projects/rr-res.html" },
+        { name: "GJ Residence", location: "Maraimalainagar", config: "5 BHK", sqft: "5,120", img: "images/gj-res/gj-res-facade.webp", link: "projects/gj-res.html" },
+        { name: "RD Residence", location: "Madhavaram", config: "2 BHK", sqft: "928", img: "images/portfolio-rd.webp", link: "projects/rd-residence.html" }
+      ];
+
+      var card = document.getElementById('heroFeatCard');
+      var dotsWrap = document.getElementById('heroFeatDots');
+      if (!card || !dotsWrap) return;
+
+      // Fisher-Yates shuffle, then take the first 3
+      var pool = featPool.slice();
+      for (var i = pool.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+      }
+      var picks = pool.slice(0, 3);
+
+      card.innerHTML = picks.map(function (p, i) {
+        return '<div class="hero-feat-slide' + (i === 0 ? ' active' : '') + '" style="background-image:url(\'' + p.img + '\')">' +
+          '<div class="hero-feat-gradient"></div>' +
+          '<div class="hero-feat-info">' +
+            '<div class="hero-feat-name">' + p.name + '</div>' +
+            '<div class="hero-feat-meta">' +
+              '<span>' + p.location + '</span>' +
+              '<span class="feat-sep">&middot;</span>' +
+              '<span>' + p.config + ' &middot; ' + p.sqft + ' sq ft</span>' +
+            '</div>' +
+            '<a href="' + p.link + '" class="hero-feat-link">View Project <i data-lucide="arrow-right"></i></a>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      dotsWrap.innerHTML = picks.map(function (_, i) {
+        return '<div class="hero-feat-dot' + (i === 0 ? ' active' : '') + '"></div>';
+      }).join('');
+
+      if (window.lucide) { lucide.createIcons(); }
+
+      var slides = card.querySelectorAll('.hero-feat-slide');
+      var dots   = dotsWrap.querySelectorAll('.hero-feat-dot');
       var cur = 0;
       function goTo(n) {
         slides[cur].classList.remove('active');
