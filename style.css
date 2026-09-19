@@ -120,7 +120,7 @@ section[id] { scroll-margin-top: 60px; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   list-style: none;
 }
 .nav-links a {
@@ -186,6 +186,17 @@ section[id] { scroll-margin-top: 60px; }
 }
 .nav-mobile a:last-child { border-bottom: none; }
 .nav-mobile .btn-primary { margin-top: 16px; justify-content: center; }
+
+/* .nav-inner only gets its side gutter from centering inside --container-max (1280px) —
+   below that width it has zero padding and the logo/CTA touch the viewport edge. */
+@media (max-width: 1280px) {
+  .nav-inner   { padding-left: 30px; padding-right: 30px; }
+  .nav-mobile  { padding-left: 30px; padding-right: 30px; }
+}
+@media (max-width: 600px) {
+  .nav-inner   { padding-left: 20px; padding-right: 20px; }
+  .nav-mobile  { padding-left: 20px; padding-right: 20px; }
+}
 
 /* =====================
    3. HERO
@@ -871,7 +882,8 @@ section[id] { scroll-margin-top: 60px; }
   font-size: 16px;
   color: var(--color-text-muted);
   margin: 0 0 16px;
-  max-width: 900px;
+  max-width: 960px;
+  line-height: 1.5;
 }
 
 .all-proj-filters {
@@ -981,6 +993,14 @@ section[id] { scroll-margin-top: 60px; }
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 0 80px;
+}
+
+/* Between ~1000px and --container-max (1280px), content stretches to the
+   viewport with no side gutter — add one back so cards/text don't touch the edge. */
+@media (max-width: 1280px) {
+  .breadcrumb,
+  .all-proj-header,
+  .all-proj-grid-wrap { padding-left: 30px; padding-right: 30px; }
 }
 
 /* Infinite scroll card states */
@@ -1861,8 +1881,8 @@ section[id] { scroll-margin-top: 60px; }
 
 .testi-quote {
   font-family: var(--font-ui);
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
   color: #111;
   line-height: 1.7;
   margin: 0;
