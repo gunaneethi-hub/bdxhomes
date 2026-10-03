@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/service-construction.html",
+      "destination": "/service-construction/",
+      "permanent": true
+    }
+  ]
+}

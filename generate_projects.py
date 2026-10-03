@@ -12,6 +12,15 @@ REPO = os.path.dirname(os.path.abspath(__file__))
 PLACEHOLDER_IMG = "../images/placeholder-project.svg"
 PLACEHOLDER_IMG_ROOT = "images/placeholder-project.svg"
 
+CLIENT_AVATARS = {
+    "sk-res": ("sk-client.webp", "Srikanth Inbadasan"),
+    "av-res": ("av-client.webp", "Avinash Tikana"),
+    "ra-res": ("ra-client.webp", "Ravindra Bharathi S"),
+    "nila-2-0": ("nila-2-client.webp", "Karthiga Rajkumar"),
+    "bdx-nila": ("bdx-nila-client.webp", "Vinith Ashwin"),
+    "vn-res": ("vn-client.webp", "Vignesh Rathinavelu"),
+}
+
 PROJECTS = [
     {"slug": "sk-res", "name": "SK Residence", "config": "5 BHK", "area": "2490.8", "floors": "G+2",
      "location": "Kayarambedu", "year": "March 2025", "duration": "10 Months", "structure": "RCC Frame",
@@ -78,17 +87,6 @@ PROJECTS = [
      "location": "Thirupathoor", "year": "2023", "duration": None, "structure": None,
      "review": None, "overview": None},
 
-    {"slug": "pr-res", "name": "PR Residence", "config": "5 BHK", "area": "4850", "floors": "G+2",
-     "location": "Maraimalainagar", "year": "2024", "duration": None, "structure": None,
-     "review": None, "overview": None},
-
-    {"slug": "rr-res", "name": "RR Residence", "config": "5 BHK", "area": "4850", "floors": "G+2",
-     "location": "Maraimalainagar", "year": "2024", "duration": None, "structure": None,
-     "review": None, "overview": None},
-
-    {"slug": "gj-res", "name": "GJ Residence", "config": "5 BHK", "area": "5120", "floors": "G+2",
-     "location": "Maraimalainagar", "year": "2024", "duration": None, "structure": None,
-     "review": None, "overview": None},
 ]
 
 # Pool used for "You May Also Like" — includes RD Residence (has a real photo already).
@@ -140,6 +138,13 @@ def overview_paragraphs(p):
 def testimonial_section(p):
     if not p["review"]:
         return ""
+    avatar = CLIENT_AVATARS.get(p["slug"])
+    avatar_html = (
+        f'<img class="testi-avatar" src="../images/client-photos/{avatar[0]}" '
+        f'alt="{avatar[1]}" width="50" height="50" loading="lazy" />'
+        if avatar else
+        f'<div class="testi-avatar-placeholder">{initials(p["name"])}</div>'
+    )
     return f"""
   <!-- ── TESTIMONIAL ── -->
   <section class="proj-testimonial">
@@ -160,7 +165,7 @@ def testimonial_section(p):
             <blockquote class="testi-quote">"{p['review']}"</blockquote>
           </div>
           <div class="testi-author">
-            <div class="testi-avatar-placeholder">{initials(p['name'])}</div>
+            {avatar_html}
             <div class="testi-author-info">
               <strong>Verified Client</strong>
               <span>Google Review · {p['location']}, Chennai</span>
@@ -215,7 +220,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
           <li><a href="../index.html#services">Services</a></li>
           <li><a href="../index.html#portfolio" class="active">Projects</a></li>
           <li><a href="../index.html#promise">7G Services</a></li>
-          <li><a href="../index.html#faq">FAQ</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
         </ul>
       </nav>
@@ -235,7 +239,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <a href="../index.html#services">Services</a>
       <a href="../index.html#portfolio">Projects</a>
       <a href="../index.html#promise">7G Services</a>
-      <a href="../index.html#faq">FAQ</a>
       <a href="../index.html#contact">Contact</a>
       <a href="tel:+919150007269">\U0001F4DE +91 91500 07269</a>
       <a href="../index.html#contact" class="btn-primary">Free Consultation</a>

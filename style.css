@@ -62,7 +62,11 @@ body.page-leaving {
 a  { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-section[id] { scroll-margin-top: 60px; }
+section[id] { 
+  padding-top: 100px;
+  scroll-margin-top: 60px; 
+}
+
 
 /* Shared button */
 .btn-primary {
@@ -120,7 +124,7 @@ section[id] { scroll-margin-top: 60px; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   list-style: none;
 }
 .nav-links a {
@@ -128,7 +132,7 @@ section[id] { scroll-margin-top: 60px; }
   font-size: 14px;
   color: var(--color-text);
   white-space: nowrap;
-  padding: 4px 10px;
+  padding: 4px 8px;
   border-radius: 6px;
   transition: color 0.2s, background 0.2s;
 }
@@ -138,7 +142,7 @@ section[id] { scroll-margin-top: 60px; }
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   flex-shrink: 0;
 }
 
@@ -265,6 +269,33 @@ section[id] { scroll-margin-top: 60px; }
 .hero-heading .gold {
   color: var(--color-gold);
   letter-spacing: -1px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    110deg,
+    #9b6414 0%,
+    #c98a24 30%,
+    #f4d17b 48%,
+    #c98a24 66%,
+    #9b6414 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 3px 8px rgba(184, 123, 25, 0.18));
+  animation: dream-home-shimmer 4.5s ease-in-out infinite;
+}
+
+@keyframes dream-home-shimmer {
+  0%, 18% { background-position: 100% 50%; }
+  58%, 100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading .gold {
+    animation: none;
+  }
 }
 
 .hero-sub {
@@ -3038,12 +3069,59 @@ section[id] { scroll-margin-top: 60px; }
 /* ── Service inner pages ── */
 .svc-page-hero {
   background: var(--color-bg);
-  padding: 48px 0 52px;
+  padding: 0;
 }
 .svc-page-hero-content {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  gap: 64px;
+  align-items: center;
+}
+.svc-page-hero-copy {
+  min-width: 0;
+}
+.svc-page-hero-media {
+  height: 350px;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(23, 0, 0, 0.14);
+}
+.svc-page-hero-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.svc-page-hero-form-wrap {
+  background: #fff;
+  border: 1px solid rgba(23, 0, 0, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(23, 0, 0, 0.12);
+  padding: 28px;
+}
+.svc-hero-form { gap: 12px; }
+.svc-hero-form h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 27px;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+.svc-hero-form > p {
+  margin: 0 0 4px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.svc-hero-form > small {
+  color: #777;
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
 }
 .svc-page-hero-eyebrow {
   font-family: var(--font-ui);
@@ -3221,12 +3299,17 @@ section[id] { scroll-margin-top: 60px; }
 
 /* Responsive */
 @media (max-width: 900px) {
+  .svc-page-hero-content { grid-template-columns: 1fr; gap: 36px; }
+  .svc-page-hero-media { height: 300px; }
+  .svc-page-hero-form-wrap { max-width: 560px; }
   .svc-includes-inner { grid-template-columns: 1fr; gap: 40px; }
   .svc-page-hero-heading { font-size: 34px; }
   .svc-steps::before { display: none; }
   .svc-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 @media (max-width: 600px) {
+  .svc-page-hero-content { gap: 28px; }
+  .svc-page-hero-media { height: 230px; border-radius: 14px; }
   .svc-page-hero-heading { font-size: 28px; }
   .svc-page-hero-sub { font-size: 15px; }
   .svc-features { grid-template-columns: 1fr; }
@@ -3248,4 +3331,505 @@ section[id] { scroll-margin-top: 60px; }
   .founders    { padding-left: 12px; padding-right: 12px; }
   .testimonials { padding-left: 12px; padding-right: 12px; }
   .hero-inner  { padding-left: 16px; padding-right: 16px; }
+}
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-hero {
+  background: var(--color-bg);
+  padding: 42px 80px 76px;
+}
+
+.about-hero-inner,
+.about-story-inner,
+.about-beliefs-inner,
+.about-founders-inner,
+.about-trust-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.about-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.about-hero-copy h1 {
+  max-width: 680px;
+  margin: 8px 0 18px;
+  font-family: var(--font-heading);
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--color-dark);
+}
+
+.about-hero-copy p {
+  max-width: 560px;
+  margin: 0 0 30px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #555;
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.about-link {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-dark);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 4px;
+}
+
+.about-hero-gallery {
+  position: relative;
+  min-height: 560px;
+}
+
+.about-hero-img {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 24px 70px rgba(23, 0, 0, 0.14);
+}
+
+.about-hero-img-main {
+  inset: 0 110px 0 0;
+  width: calc(100% - 110px);
+  height: 100%;
+  border-radius: 18px;
+}
+
+.about-hero-img-small {
+  right: 0;
+  width: 250px;
+  height: 190px;
+  border: 8px solid var(--color-bg);
+  border-radius: 16px;
+}
+
+.about-hero-img-top { top: 44px; }
+.about-hero-img-bottom { bottom: 44px; }
+
+.about-trust {
+  background: #fff;
+  padding: 0 80px 78px;
+}
+
+.about-trust-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: -38px;
+  position: relative;
+  z-index: 2;
+}
+
+.about-trust-card {
+  min-height: 142px;
+  padding: 26px 20px;
+  background: #170000;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.about-trust-card .stat-number {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.about-trust-card span:last-child {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fffaf3;
+}
+
+.about-story {
+  background: #fff;
+  padding: 92px 80px 92px;
+}
+
+.about-story-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.75fr);
+  gap: 72px;
+  align-items: start;
+}
+
+.about-story-copy h2,
+.about-beliefs .section-heading,
+.about-founders .section-heading {
+  margin: 8px 0 18px;
+  font-family: var(--font-heading);
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-dark);
+}
+
+.about-story-copy p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-timeline {
+  border-left: 2px solid #f0d6d4;
+  padding-left: 28px;
+}
+
+.about-timeline-item {
+  position: relative;
+  padding: 0 0 32px;
+}
+
+.about-timeline-item:last-child { padding-bottom: 0; }
+
+.about-timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -36px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 2px #f0d6d4;
+}
+
+.about-timeline-item span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.about-timeline-item strong {
+  display: block;
+  margin-bottom: 7px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  color: var(--color-dark);
+}
+
+.about-timeline-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.about-beliefs {
+  background: #f9f6f2;
+  padding: 82px 80px;
+}
+
+.about-section-head {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.about-section-head .section-sub {
+  margin: 0 auto;
+  color: #555;
+}
+
+.about-belief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.about-belief-card {
+  min-height: 250px;
+  padding: 32px;
+  background: #fff;
+  border: 1px solid rgba(23, 0, 0, 0.08);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.about-belief-card svg {
+  width: 34px;
+  height: 34px;
+  display: block;
+  margin: 0 auto 26px;
+  stroke: var(--color-primary);
+  stroke-width: 1.8;
+}
+
+.about-belief-card h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.about-belief-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-founders {
+  background: #fffaf3;
+  padding: 88px 80px 100px;
+}
+
+.about-founder-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.about-founder-profile {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid rgba(23, 0, 0, 0.08);
+  border-radius: 18px;
+}
+
+.about-founder-profile img {
+  width: 220px;
+  height: 260px;
+  border-radius: 14px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.about-founder-profile span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.about-founder-profile h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--color-dark);
+}
+
+.about-founder-profile p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #555;
+}
+
+.about-team-photo {
+  position: relative;
+  margin-top: 34px;
+  min-height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #170000;
+}
+
+.about-team-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  opacity: 0.82;
+}
+
+.about-team-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(23, 0, 0, 0.76), rgba(23, 0, 0, 0.16) 58%, rgba(23, 0, 0, 0.06));
+}
+
+.about-team-photo-caption {
+  position: absolute;
+  left: 42px;
+  bottom: 38px;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.about-team-photo-caption span {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.about-team-photo-caption h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 34px;
+  line-height: 1.18;
+  color: #fffaf3;
+}
+
+@media (max-width: 1080px) {
+  .about-hero,
+  .about-trust,
+  .about-story,
+  .about-beliefs,
+  .about-founders {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .about-hero-inner,
+  .about-story-inner,
+  .about-founder-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-gallery {
+    min-height: 520px;
+  }
+
+  .about-founder-profile {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .about-hero {
+    padding: 34px 20px 58px;
+  }
+
+  .about-trust,
+  .about-story,
+  .about-beliefs,
+  .about-founders {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: 38px;
+  }
+
+  .about-hero-gallery {
+    min-height: 430px;
+  }
+
+  .about-hero-img-main {
+    inset: 0;
+    width: 100%;
+  }
+
+  .about-hero-img-small {
+    width: 170px;
+    height: 130px;
+    border-width: 6px;
+  }
+
+  .about-hero-img-top { top: 24px; }
+  .about-hero-img-bottom { bottom: 24px; }
+
+  .about-trust {
+    padding-bottom: 56px;
+  }
+
+  .about-trust-inner,
+  .about-belief-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-trust-card {
+    min-height: 118px;
+  }
+
+  .about-story {
+    padding-bottom: 62px;
+  }
+
+  .about-story-copy h2,
+  .about-beliefs .section-heading,
+  .about-founders .section-heading {
+    font-size: 32px;
+  }
+
+  .about-founder-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about-founder-profile img {
+    width: 100%;
+    height: 360px;
+  }
+
+  .about-team-photo,
+  .about-team-photo img {
+    min-height: 340px;
+  }
+
+  .about-team-photo-caption {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .about-team-photo-caption h3 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hero-copy h1 {
+    font-size: 33px;
+  }
+
+  .about-hero-gallery {
+    min-height: 360px;
+  }
+
+  .about-hero-img-small {
+    width: 145px;
+    height: 112px;
+  }
+
+  .about-founder-profile img {
+    height: 320px;
+  }
+
+  .about-team-photo,
+  .about-team-photo img {
+    min-height: 300px;
+  }
 }

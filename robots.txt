@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /apply.html
 
 Sitemap: https://bdxhomes.com/sitemap.xml

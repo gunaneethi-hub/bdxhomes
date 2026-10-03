@@ -165,7 +165,6 @@ NAV_DESKTOP = '''        <ul class="nav-links">
           <li><a href="../index.html#services">Services</a></li>
           <li><a href="../index.html#portfolio" class="active">Projects</a></li>
           <li><a href="../index.html#promise">7G Services</a></li>
-          <li><a href="../index.html#faq">FAQ</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
         </ul>'''
 
@@ -174,7 +173,6 @@ NAV_MOBILE = '''    <div class="nav-mobile" id="nav-mobile">
       <a href="../index.html#services">Services</a>
       <a href="../index.html#portfolio">Projects</a>
       <a href="../index.html#promise">7G Services</a>
-      <a href="../index.html#faq">FAQ</a>
       <a href="../index.html#contact">Contact</a>
       <a href="tel:+919150007269">📞 +91 91500 07269</a>
       <a href="../index.html#contact" class="btn-primary">Free consultation →</a>
