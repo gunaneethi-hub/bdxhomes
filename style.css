@@ -1640,8 +1640,12 @@ section[id] {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .g-card.g-visible {
-  opacity: 1;
-  transform: translateY(0);
+  animation: promiseCardIn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes promiseCardIn {
+  from { opacity: 0.35; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .g-icon-wrap {

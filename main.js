@@ -2,8 +2,9 @@
    BDX SMART HOMES — main.js
    ============================================= */
 
-// Initialise Lucide icons
-lucide.createIcons();
+// Initialise icons when the optional CDN library is available. A blocked
+// third-party script must not prevent the site's own interactions/animations.
+if (window.lucide) window.lucide.createIcons();
 
 // Sticky nav shadow on scroll
 const nav = document.getElementById('nav');
@@ -221,7 +222,7 @@ function showSuccess(form) {
       <h4>Thank you!</h4>
       <p>We've received your details and will reach out within 24 hours.</p>
     </div>`;
-  lucide.createIcons();
+  if (window.lucide) window.lucide.createIcons();
 }
 
 handleFormSubmit(document.getElementById('heroContactForm'), () => {
