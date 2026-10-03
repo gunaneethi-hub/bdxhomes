@@ -27,13 +27,18 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 // Nav scroll-spy
 (function () {
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const sections = Array.from(navLinks)
-    .map(a => document.querySelector(a.getAttribute('href')))
+  // The deployed host rewrites page links (for example, about.html to /about).
+  // Only hash links are section selectors; passing a route to querySelector()
+  // throws and would prevent the rest of this file from initializing.
+  const sectionLinks = Array.from(document.querySelectorAll('.nav-links a'))
+    .filter(link => link.getAttribute('href')?.startsWith('#'));
+  const sections = sectionLinks
+    .map(link => document.getElementById(link.getAttribute('href').slice(1)))
     .filter(Boolean);
+  if (!sections.length) return;
 
   function setActive(id) {
-    navLinks.forEach(a => {
+    sectionLinks.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + id);
     });
   }
