@@ -1637,8 +1637,6 @@ section[id] {
   flex-direction: column;
   gap: 12px;
   min-height: 440px;
-  opacity: 0;
-  transform: translateY(28px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .g-card.g-visible {
