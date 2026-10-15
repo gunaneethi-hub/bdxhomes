@@ -349,12 +349,17 @@ section[id] {
 .hero-feat-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 0.7s ease;
 }
 .hero-feat-slide.active { opacity: 1; }
+.hero-feat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 .hero-feat-gradient {
   position: absolute;
   inset: 0;
@@ -1351,6 +1356,11 @@ section[id] {
   margin-top: 32px;
 }
 .proj-gallery-item {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
   aspect-ratio: 4/3;
   overflow: hidden;
   border-radius: 12px;
@@ -2647,7 +2657,8 @@ section[id] {
   gap: 14px;
 }
 
-.footer-links a {
+.footer-links a,
+.footer-links .footer-link-text {
   font-family: var(--font-ui);
   font-size: 14px;
   color: rgba(255,255,255,0.45);
@@ -2759,50 +2770,6 @@ section[id] {
 @media (max-width: 600px) {
   .cf-modal-card { padding: 28px 20px; }
 }
-
-/* =====================
-   SEO BLOCK
-   ===================== */
-.seo-block {
-  background: #000;
-  padding: 40px 104px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.seo-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.seo-heading {
-  font-family: var(--font-ui);
-  font-size: 13px;
-  font-weight: 600;
-  color: #b8b8b8;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.seo-divider {
-  border: none;
-  border-top: 1px solid #383838;
-  margin: 0;
-}
-
-.seo-text {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 400;
-  color: #6b6b6b;
-  line-height: 1.83;
-  margin: 0;
-}
-
-@media (max-width: 900px) { .seo-block { padding: 32px 24px; } }
-@media (max-width: 600px) { .seo-block { padding: 24px 16px; } }
 
 /* ===== WHATSAPP FLOAT ===== */
 .whatsapp-float {

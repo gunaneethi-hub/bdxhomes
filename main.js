@@ -72,7 +72,7 @@ if ('IntersectionObserver' in window) {
   const statsCard = document.querySelector('.stats-card');
   const observer = new IntersectionObserver((entries, obs) => {
     if (entries[0].isIntersecting) {
-      document.querySelectorAll('.stat-number').forEach(el => {
+      document.querySelectorAll('.stat-number[data-count]').forEach(el => {
         countUp(el, +el.dataset.count, el.dataset.suffix, 2000);
       });
       obs.unobserve(statsCard);
@@ -147,19 +147,24 @@ if ('IntersectionObserver' in window) {
   const closeBtn = document.getElementById('cfModalClose');
   const heroBtn = document.getElementById('heroCtaBtn');
   if (!backdrop) return;
+  let returnFocus = null;
 
   function openModal() {
+    returnFocus = document.activeElement;
     document.body.style.overflow = 'hidden';
     backdrop.classList.add('open');
     backdrop.removeAttribute('aria-hidden');
-    closeBtn.focus({ preventScroll: true });
+    backdrop.removeAttribute('inert');
+    const firstField = backdrop.querySelector('input:not([type="hidden"]):not([name="website"])');
+    requestAnimationFrame(() => (firstField || closeBtn).focus({ preventScroll: true }));
   }
 
   function closeModal() {
     backdrop.classList.remove('open');
     backdrop.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('inert', '');
     document.body.style.overflow = '';
-    if (heroBtn) heroBtn.focus({ preventScroll: true });
+    if (returnFocus && typeof returnFocus.focus === 'function') returnFocus.focus({ preventScroll: true });
   }
 
   if (heroBtn) heroBtn.addEventListener('click', openModal);
@@ -180,6 +185,7 @@ function validateForm(form) {
     field.classList.add('input-error');
     const err = document.createElement('span');
     err.className = 'form-error';
+    err.setAttribute('role', 'alert');
     err.textContent = msg;
     field.closest('.form-field').appendChild(err);
     valid = false;
@@ -204,10 +210,22 @@ function validateForm(form) {
 }
 
 function handleFormSubmit(form, onSuccess) {
+  if (!form) return;
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!validateForm(form)) return;
-    onSuccess();
+    const submit = form.querySelector('[type="submit"]');
+    if (submit && submit.disabled) return;
+    if (submit) {
+      submit.disabled = true;
+      submit.setAttribute('aria-disabled', 'true');
+    }
+    const submitted = onSuccess();
+    if (submitted === false && submit) {
+      submit.disabled = false;
+      submit.removeAttribute('aria-disabled');
+      showFailure(form);
+    }
   });
 
   // Clear error on input
@@ -222,21 +240,37 @@ function handleFormSubmit(form, onSuccess) {
 
 function showSuccess(form) {
   form.innerHTML = `
-    <div class="form-success">
+    <div class="form-success" role="status" aria-live="polite" tabindex="-1">
       <i data-lucide="circle-check-big" class="form-success-icon"></i>
       <h4>Thank you!</h4>
       <p>We've received your details and will reach out within 24 hours.</p>
     </div>`;
   if (window.lucide) window.lucide.createIcons();
+  form.querySelector('.form-success')?.focus({ preventScroll: true });
+}
+
+function showFailure(form) {
+  let status = form.querySelector('.form-submit-status');
+  if (!status) {
+    status = document.createElement('p');
+    status.className = 'form-error form-submit-status';
+    status.setAttribute('role', 'alert');
+    form.appendChild(status);
+  }
+  status.textContent = 'We could not send your details. Please try again or call +91 91500 07269.';
 }
 
 handleFormSubmit(document.getElementById('heroContactForm'), () => {
-  window.bdxSubmitFormLead(document.getElementById('heroContactForm'));
+  const submitted = window.bdxSubmitFormLead(document.getElementById('heroContactForm'));
+  if (!submitted) return false;
   showSuccess(document.getElementById('heroContactForm'));
+  return true;
 });
 handleFormSubmit(document.getElementById('contactForm'), () => {
-  window.bdxSubmitFormLead(document.getElementById('contactForm'));
+  const submitted = window.bdxSubmitFormLead(document.getElementById('contactForm'));
+  if (!submitted) return false;
   showSuccess(document.getElementById('contactForm'));
+  return true;
 });
 
 // FAQ accordion

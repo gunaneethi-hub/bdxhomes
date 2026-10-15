@@ -22,8 +22,7 @@
   // Submits an arbitrary field map to the intake sheet.
   window.bdxSubmitLead = function (data) {
     if (!SCRIPT_URL || SCRIPT_URL.indexOf('PASTE_YOUR') === 0) {
-      console.warn('BDX form intake: SCRIPT_URL not configured yet in form-submit.js.');
-      return;
+      return false;
     }
     targetIframe();
     var form = document.createElement('form');
@@ -41,22 +40,23 @@
     document.body.appendChild(form);
     form.submit();
     document.body.removeChild(form);
+    return true;
   };
 
   // Convenience for the standard lead forms (name/phone/email/service).
   // Silently aborts if the honeypot field was filled in (bot traffic).
   window.bdxSubmitFormLead = function (formEl) {
     var honeypot = formEl.querySelector('[name="website"]');
-    if (honeypot && honeypot.value) return;
+    if (honeypot && honeypot.value) return false;
 
-    var nameField = formEl.querySelector('input[type="text"]:not([name="website"])');
-    var phoneField = formEl.querySelector('[type="tel"]');
-    var emailField = formEl.querySelector('[type="email"]');
-    var serviceField = formEl.querySelector('select');
+    var nameField = formEl.querySelector('[name="name"]');
+    var phoneField = formEl.querySelector('[name="phone"]');
+    var emailField = formEl.querySelector('[name="email"]');
+    var serviceField = formEl.querySelector('[name="service"]');
     var formTypeField = formEl.querySelector('[name="form_type"]');
     var sourceField = formEl.querySelector('[name="source_page"]');
 
-    window.bdxSubmitLead({
+    return window.bdxSubmitLead({
       form_type: formTypeField ? formTypeField.value : 'lead',
       source_page: sourceField ? sourceField.value : document.title,
       name: nameField ? nameField.value.trim() : '',

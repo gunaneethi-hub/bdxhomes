@@ -1,8 +1,14 @@
 {
+  "rewrites": [
+    {
+      "source": "/service-construction",
+      "destination": "/service-construction/index.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/service-construction.html",
-      "destination": "/service-construction/",
+      "destination": "/service-construction",
       "permanent": true
     }
   ]

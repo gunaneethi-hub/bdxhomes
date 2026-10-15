@@ -180,15 +180,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="section-eyebrow">Photo Gallery</span>
       <h2 class="section-heading proj-section-heading">The Home</h2>
       <div class="proj-gallery-grid">
-        <a class="proj-gallery-item" data-index="0"><img src="../images/ds-res/ds-res-facade.webp" alt="DS Residence — front facade with arch-cut design, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="1"><img src="../images/ds-res/ds-res-living-room.webp" alt="DS Residence — living room, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="2"><img src="../images/ds-res/ds-res-kitchen.webp" alt="DS Residence — modular kitchen, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="3"><img src="../images/ds-res/ds-res-kitchen-dining.webp" alt="DS Residence — kitchen and dining area, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="4"><img src="../images/ds-res/ds-res-bedroom.webp" alt="DS Residence — bedroom, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="5"><img src="../images/ds-res/ds-res-bedroom-blue-accent.webp" alt="DS Residence — bedroom with blue accent wall, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="6"><img src="../images/ds-res/ds-res-pooja-unit.webp" alt="DS Residence — pooja unit, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="7"><img src="../images/ds-res/ds-res-living-dining-wide.webp" alt="DS Residence — wide living and dining interior, Kannivakkam, Chennai" /></a>
-        <a class="proj-gallery-item" data-index="8"><img src="../images/ds-res/ds-res-living-buddha-wall.webp" alt="DS Residence — living room with Buddha feature wall, Kannivakkam, Chennai" /></a>
+        <button type="button" class="proj-gallery-item" data-index="0"><img src="../images/ds-res/ds-res-facade.webp" alt="DS Residence — front facade with arch-cut design, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="1"><img src="../images/ds-res/ds-res-living-room.webp" alt="DS Residence — living room, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="2"><img src="../images/ds-res/ds-res-kitchen.webp" alt="DS Residence — modular kitchen, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="3"><img src="../images/ds-res/ds-res-kitchen-dining.webp" alt="DS Residence — kitchen and dining area, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="4"><img src="../images/ds-res/ds-res-bedroom.webp" alt="DS Residence — bedroom, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="5"><img src="../images/ds-res/ds-res-bedroom-blue-accent.webp" alt="DS Residence — bedroom with blue accent wall, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="6"><img src="../images/ds-res/ds-res-pooja-unit.webp" alt="DS Residence — pooja unit, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="7"><img src="../images/ds-res/ds-res-living-dining-wide.webp" alt="DS Residence — wide living and dining interior, Kannivakkam, Chennai" /></button>
+        <button type="button" class="proj-gallery-item" data-index="8"><img src="../images/ds-res/ds-res-living-buddha-wall.webp" alt="DS Residence — living room with Buddha feature wall, Kannivakkam, Chennai" /></button>
       </div>
     </div>
   </section>
@@ -234,30 +234,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <i data-lucide="x"></i>
       </button>
       <h3 class="contact-form-title">Start Your Journey with Us!</h3>
-      <form class="contact-form" id="projContactForm" novalidate>
+      <form class="contact-form" id="projContactForm" method="post" action="https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec" novalidate>
           <input type="hidden" name="form_type" value="lead" />
           <input type="hidden" name="source_page" value="Project — DS Residence" />
           <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="pcf-name">Full Name</label>
-          <input id="pcf-name" type="text" placeholder="Enter your full name" />
+          <input id="pcf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" />
         </div>
         <div class="form-field">
           <label for="pcf-phone">Phone Number <span class="form-required">*</span></label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
-            <input id="pcf-phone" type="tel" placeholder="98765 43210" required />
+            <input id="pcf-phone" name="phone" type="tel" autocomplete="tel" placeholder="98765 43210" required />
           </div>
         </div>
         <div class="form-field">
           <label for="pcf-email">Email address <span class="form-required">*</span></label>
-          <input id="pcf-email" type="email" placeholder="Enter your email address" required />
+          <input id="pcf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
         </div>
         <div class="form-field">
           <label for="pcf-service">Services</label>
           <div class="select-wrap">
-            <select id="pcf-service">
+            <select id="pcf-service" name="service" autocomplete="off">
               <option value="">Consultation</option>
               <option>Architecture Design</option>
               <option>Residential Construction</option>
@@ -280,7 +280,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="../index.html" class="footer-logo-link">
           <img src="../images/footer-logo.webp" alt="BDX Smart Homes" class="footer-logo" />
         </a>
-        <p class="footer-tagline">Building dream homes in Chennai since 2014. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
+        <p class="footer-tagline">BDX since 2013, building dream homes in Chennai. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/bdxsmarthomes/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><img src="../images/social-instagram.svg" alt="Instagram" /></a>
           <a href="https://www.facebook.com/people/BDX-Smarthomes/61555472142492/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener"><img src="../images/social-facebook.svg" alt="Facebook" /></a>
@@ -300,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ul class="footer-links">
           <li><a href="../contact.html">Contact Us</a></li>
           <li><a href="../index.html#portfolio">Our Projects</a></li>
-          <li><a href="../index.html#process">Our Process</a></li>
+          <li><span class="footer-link-text">Our Process</span></li>
           <li><a href="../index.html#testimonials">Testimonials</a></li>
           <li><a href="../careers.html">Careers</a></li>
         </ul>
@@ -309,8 +309,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="footer-col-heading">Legal</h4>
         <ul class="footer-links">
           <li><a href="../privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><span class="footer-link-text">Terms of Service</span></li>
+          <li><span class="footer-link-text">Disclaimer</span></li>
         </ul>
       </div>
     </div>
@@ -372,6 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         field.classList.add('input-error');
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = msg;
         field.closest('.form-field').appendChild(err);
       }
@@ -397,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError(email, 'Enter a valid email address.'); valid = false; }
         if (!valid) return;
         window.bdxSubmitFormLead(form);
-        form.innerHTML = `<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
+        form.innerHTML = `<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
         lucide.createIcons();
       });
     })();

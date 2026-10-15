@@ -156,30 +156,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h1 class="apply-title">Build Your Career with BDX Smart Homes</h1>
       <p class="apply-sub">We're growing fast and looking for talented people in construction, architecture, design and sales. Fill in your details and we'll get back to you within 48 hours.</p>
 
-      <form class="contact-form" id="applyForm" novalidate>
+      <form class="contact-form" id="applyForm" method="post" action="https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec" novalidate>
         <input type="hidden" name="form_type" value="application" />
         <input type="hidden" name="source_page" value="Apply Page" />
         <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="af-name">Full Name <span class="form-required">*</span></label>
-          <input id="af-name" type="text" placeholder="Enter your full name" required />
+          <input id="af-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required />
         </div>
         <div class="form-field">
           <label for="af-phone">Phone Number <span class="form-required">*</span></label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
-            <input id="af-phone" type="tel" placeholder="98765 43210" required />
+            <input id="af-phone" name="phone" type="tel" autocomplete="tel" placeholder="98765 43210" required />
           </div>
         </div>
         <div class="form-field">
           <label for="af-email">Email Address <span class="form-required">*</span></label>
-          <input id="af-email" type="email" placeholder="Enter your email address" required />
+          <input id="af-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
         </div>
         <div class="form-field">
           <label for="af-role">Applying For</label>
           <div class="select-wrap">
-            <select id="af-role">
+            <select id="af-role" name="role" autocomplete="organization-title">
               <option value="">Select a role</option>
               <option>Site Engineer</option>
               <option>Interior Designer</option>
@@ -200,7 +200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="file-upload-text">Click to upload PDF or Word file</span>
             <span class="file-upload-hint">Max 5 MB</span>
           </label>
-          <input id="af-resume" type="file" accept=".pdf,.doc,.docx" style="display:none" />
+          <input id="af-resume" name="resume" type="file" accept=".pdf,.doc,.docx" style="display:none" />
         </div>
         <button type="submit" class="btn-primary form-submit">Submit Application <i data-lucide="arrow-right" class="btn-arrow"></i></button>
         <p class="form-privacy">We respect your privacy. Your information is 100% secure and never shared.</p>
@@ -214,7 +214,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <i data-lucide="clock"></i> Reply within 48 hrs
         </div>
         <div class="apply-trust-item">
-          <i data-lucide="shield-check"></i> 10+ years in business
+          <i data-lucide="shield-check"></i> BDX since 2013
         </div>
       </div>
     </div>
@@ -268,12 +268,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         resume.closest('.form-field').querySelector('.file-upload-label').style.borderColor = '#e53e3e';
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = 'Please upload your resume.';
         resume.closest('.form-field').appendChild(err);
         valid = false;
       } else if (resume.files[0].size > 5 * 1024 * 1024) {
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = 'File must be under 5 MB.';
         resume.closest('.form-field').appendChild(err);
         valid = false;
@@ -291,7 +293,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const roleField = form.querySelector('#af-role');
       const finish = () => {
-        form.innerHTML = '<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. Our team will reach out within 48 hours.</p></div>';
+        form.innerHTML = '<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. Our team will reach out within 48 hours.</p></div>';
         lucide.createIcons();
       };
 
@@ -319,6 +321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       field.classList.add('input-error');
       const err = document.createElement('span');
       err.className = 'form-error';
+        err.setAttribute('role', 'alert');
       err.textContent = msg;
       field.closest('.form-field').appendChild(err);
     }

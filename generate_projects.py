@@ -322,7 +322,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <span class="section-eyebrow">Photo Gallery</span>
       <h2 class="section-heading proj-section-heading">The Home</h2>
       <div class="proj-gallery-grid proj-gallery-grid--single">
-        <a class="proj-gallery-item" data-index="0"><img src="{placeholder}" alt="{name} — photos coming soon" /></a>
+        <button type="button" class="proj-gallery-item" data-index="0"><img src="{placeholder}" alt="{name} — photos coming soon" /></button>
       </div>
     </div>
   </section>
@@ -351,27 +351,27 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <i data-lucide="x"></i>
       </button>
       <h3 class="contact-form-title">Start Your Journey with Us!</h3>
-      <form class="contact-form" id="projContactForm" novalidate>
+      <form class="contact-form" id="projContactForm" method="post" action="https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec" novalidate>
         <div class="form-field">
           <label for="pcf-name">Full Name</label>
-          <input id="pcf-name" type="text" placeholder="Enter your full name" />
+          <input id="pcf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" />
         </div>
         <div class="form-field">
           <label for="pcf-phone">Phone Number <span class="form-required">*</span></label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
-            <input id="pcf-phone" type="tel" placeholder="98765 43210" required />
+            <input id="pcf-phone" name="phone" type="tel" autocomplete="tel" placeholder="98765 43210" required />
           </div>
         </div>
         <div class="form-field">
           <label for="pcf-email">Email address <span class="form-required">*</span></label>
-          <input id="pcf-email" type="email" placeholder="Enter your email address" required />
+          <input id="pcf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
         </div>
         <div class="form-field">
           <label for="pcf-service">Services</label>
           <div class="select-wrap">
-            <select id="pcf-service">
+            <select id="pcf-service" name="service" autocomplete="off">
               <option value="">Consultation</option>
               <option>Architecture Design</option>
               <option>Residential Construction</option>
@@ -394,12 +394,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <a href="../index.html" class="footer-logo-link">
           <img src="../images/footer-logo.webp" alt="BDX Smart Homes" class="footer-logo" />
         </a>
-        <p class="footer-tagline">Building dream homes in Chennai since 2014. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
+        <p class="footer-tagline">BDX since 2013, building dream homes in Chennai. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Instagram"><img src="../images/social-instagram.svg" alt="Instagram" /></a>
-          <a href="#" class="footer-social" aria-label="Facebook"><img src="../images/social-facebook.svg" alt="Facebook" /></a>
-          <a href="#" class="footer-social" aria-label="YouTube"><img src="../images/social-youtube.svg" alt="YouTube" /></a>
-          <a href="#" class="footer-social" aria-label="Twitter / X"><img src="../images/social-twitter.svg" alt="Twitter" /></a>
+          <a href="https://www.instagram.com/bdxsmarthomes/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><img src="../images/social-instagram.svg" alt="Instagram" /></a>
+          <a href="https://www.facebook.com/people/BDX-Smarthomes/61555472142492/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener"><img src="../images/social-facebook.svg" alt="Facebook" /></a>
+          <a href="https://www.youtube.com/@BDXSMARTHOMES287" class="footer-social" aria-label="YouTube" target="_blank" rel="noopener"><img src="../images/social-youtube.svg" alt="YouTube" /></a>
         </div>
       </div>
       <div class="footer-col">
@@ -416,7 +415,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <ul class="footer-links">
           <li><a href="../index.html#home">About Us</a></li>
           <li><a href="../index.html#portfolio">Our Projects</a></li>
-          <li><a href="../index.html#process">Our Process</a></li>
+          <li><span class="footer-link-text">Our Process</span></li>
           <li><a href="../index.html#testimonials">Testimonials</a></li>
           <li><a href="../careers.html">Careers</a></li>
         </ul>
@@ -425,8 +424,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <h4 class="footer-col-heading">Legal</h4>
         <ul class="footer-links">
           <li><a href="../privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><span class="footer-link-text">Terms of Service</span></li>
+          <li><span class="footer-link-text">Disclaimer</span></li>
         </ul>
       </div>
     </div>
@@ -487,6 +486,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         field.classList.add('input-error');
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = msg;
         field.closest('.form-field').appendChild(err);
       }}
@@ -511,7 +511,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         if (!emailVal) {{ showError(email, 'Email address is required.'); valid = false; }}
         else if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(emailVal)) {{ showError(email, 'Enter a valid email address.'); valid = false; }}
         if (!valid) return;
-        form.innerHTML = `<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
+        form.innerHTML = `<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
         lucide.createIcons();
       }});
     }})();

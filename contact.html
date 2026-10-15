@@ -45,8 +45,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "https://bdxhomes.com/#business",
     "name": "BDX Smart Homes",
+    "foundingDate": "2013",
+    "logo": "https://bdxhomes.com/images/footer-logo.webp",
     "image": "https://bdxhomes.com/images/footer-logo.webp",
     "telephone": "+919150007269",
     "email": "admin@bdxhomes.com",
@@ -54,11 +57,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "717, Nellikupam Road, Near SIS Queenstown, Kayarambedu",
-      "addressLocality": "Guduvanchery, Chennai",
+      "addressLocality": "Guduvanchery",
       "addressRegion": "Tamil Nadu",
       "postalCode": "603202",
       "addressCountry": "IN"
-    }
+    },
+    "areaServed": ["Guduvanchery", "South Chennai", "Chennai"],
+    "sameAs": [
+      "https://www.instagram.com/bdxsmarthomes/",
+      "https://www.facebook.com/people/BDX-Smarthomes/61555472142492/",
+      "https://www.youtube.com/@BDXSMARTHOMES287"
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -168,30 +177,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Right: Form card -->
       <div class="contact-form-card">
         <h3 class="contact-form-title">Start Your Journey with Us!</h3>
-        <form class="contact-form" id="contactPageForm" novalidate>
+        <form class="contact-form" id="contactPageForm" method="post" action="https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec" novalidate>
           <input type="hidden" name="form_type" value="lead" />
           <input type="hidden" name="source_page" value="Contact Page" />
           <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
           <div class="form-field">
             <label for="cpf-name">Full Name</label>
-            <input id="cpf-name" type="text" placeholder="Enter your full name" />
+            <input id="cpf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" />
           </div>
           <div class="form-field">
             <label for="cpf-phone">Phone Number <span class="form-required">*</span></label>
             <div class="phone-input-wrap">
               <span class="phone-prefix">+91</span>
               <div class="phone-divider"></div>
-              <input id="cpf-phone" type="tel" placeholder="98765 43210" required />
+              <input id="cpf-phone" name="phone" type="tel" autocomplete="tel" placeholder="98765 43210" required />
             </div>
           </div>
           <div class="form-field">
             <label for="cpf-email">Email address <span class="form-required">*</span></label>
-            <input id="cpf-email" type="email" placeholder="Enter your email address" required />
+            <input id="cpf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
           </div>
           <div class="form-field">
             <label for="cpf-service">Services</label>
             <div class="select-wrap">
-              <select id="cpf-service">
+              <select id="cpf-service" name="service" autocomplete="off">
                 <option value="">Consultation</option>
                 <option>Architecture Design</option>
                 <option>Residential Construction</option>
@@ -230,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="index.html" class="footer-logo-link">
           <img src="images/footer-logo.webp" alt="BDX Smart Homes" class="footer-logo" />
         </a>
-        <p class="footer-tagline">Building dream homes in Chennai since 2014. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
+        <p class="footer-tagline">BDX since 2013, building dream homes in Chennai. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/bdxsmarthomes/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><img src="images/social-instagram.svg" alt="Instagram" /></a>
           <a href="https://www.facebook.com/people/BDX-Smarthomes/61555472142492/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener"><img src="images/social-facebook.svg" alt="Facebook" /></a>
@@ -240,7 +249,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="footer-col-heading">Services</h4>
         <ul class="footer-links">
           <li><a href="service-architecture.html">Architecture Design</a></li>
-          <li><a href="service-construction/">Residential Construction</a></li>
+          <li><a href="service-construction">Residential Construction</a></li>
           <li><a href="index.html#services">Interior Design</a></li>
           <li><a href="index.html#services">Project Management</a></li>
         </ul>
@@ -258,8 +267,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="footer-col-heading">Legal</h4>
         <ul class="footer-links">
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><span class="footer-link-text">Terms of Service</span></li>
+          <li><span class="footer-link-text">Disclaimer</span></li>
         </ul>
       </div>
     </div>
@@ -292,6 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         field.classList.add('input-error');
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = msg;
         field.closest('.form-field').appendChild(err);
       }
@@ -317,7 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError(email, 'Enter a valid email address.'); valid = false; }
         if (!valid) return;
         window.bdxSubmitFormLead(form);
-        form.innerHTML = `<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
+        form.innerHTML = `<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
         lucide.createIcons();
       });
     })();

@@ -278,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="index.html" class="footer-logo-link">
           <img src="images/footer-logo.webp" alt="BDX Smart Homes" class="footer-logo" />
         </a>
-        <p class="footer-tagline">Building dream homes in Chennai since 2014. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
+        <p class="footer-tagline">BDX since 2013, building dream homes in Chennai. We combine architectural excellence with transparent construction to deliver homes that stand the test of time.</p>
         <div class="footer-socials">
           <a href="https://www.instagram.com/bdxsmarthomes/" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><img src="images/social-instagram.svg" alt="Instagram" /></a>
           <a href="https://www.facebook.com/people/BDX-Smarthomes/61555472142492/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener"><img src="images/social-facebook.svg" alt="Facebook" /></a>
@@ -305,8 +305,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 class="footer-col-heading">Legal</h4>
         <ul class="footer-links">
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Disclaimer</a></li>
+          <li><span class="footer-link-text">Terms of Service</span></li>
+          <li><span class="footer-link-text">Disclaimer</span></li>
         </ul>
       </div>
     </div>
@@ -323,29 +323,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <i data-lucide="x"></i>
       </button>
       <h3 class="contact-form-title">Submit Your Application</h3>
-      <form class="contact-form" id="careerContactForm" novalidate>
+      <form class="contact-form" id="careerContactForm" method="post" action="https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec" novalidate>
         <input type="hidden" name="form_type" value="application" />
         <input type="hidden" name="source_page" value="Careers Page" />
         <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
           <label for="ccf-name">Full Name <span class="form-required">*</span></label>
-          <input id="ccf-name" type="text" placeholder="Enter your full name" required />
+          <input id="ccf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required />
         </div>
         <div class="form-field">
           <label for="ccf-phone">Phone Number <span class="form-required">*</span></label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
-            <input id="ccf-phone" type="tel" placeholder="98765 43210" required />
+            <input id="ccf-phone" name="phone" type="tel" autocomplete="tel" placeholder="98765 43210" required />
           </div>
         </div>
         <div class="form-field">
           <label for="ccf-email">Email Address <span class="form-required">*</span></label>
-          <input id="ccf-email" type="email" placeholder="Enter your email address" required />
+          <input id="ccf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
         </div>
         <div class="form-field">
           <label for="ccf-role">Applying For</label>
-          <input id="ccf-role" type="text" placeholder="e.g. Site Engineer, Architect…" />
+          <input id="ccf-role" name="role" type="text" autocomplete="organization-title" placeholder="e.g. Site Engineer, Architect…" />
         </div>
         <div class="form-field">
           <label for="ccf-resume">Upload Resume <span class="form-required">*</span></label>
@@ -354,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="file-upload-text">Click to upload PDF or Word file</span>
             <span class="file-upload-hint">Max 5 MB</span>
           </label>
-          <input id="ccf-resume" type="file" accept=".pdf,.doc,.docx" style="display:none" />
+          <input id="ccf-resume" name="resume" type="file" accept=".pdf,.doc,.docx" style="display:none" />
         </div>
         <button type="submit" class="btn-primary form-submit">Submit Application</button>
         <p class="form-privacy">We respect your privacy. Your information is 100% secure and never shared.</p>
@@ -489,17 +489,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { addError(email, 'Enter a valid email address.'); valid = false; }
         if (!ccfResume.files.length) {
           ccfResumeLabel.style.borderColor = '#e53e3e';
-          const err = document.createElement('span'); err.className = 'form-error'; err.textContent = 'Please upload your resume.';
+          const err = document.createElement('span'); err.className = 'form-error';
+        err.setAttribute('role', 'alert'); err.textContent = 'Please upload your resume.';
           ccfResume.closest('.form-field').appendChild(err); valid = false;
         } else if (ccfResume.files[0].size > 5 * 1024 * 1024) {
-          const err = document.createElement('span'); err.className = 'form-error'; err.textContent = 'File must be under 5 MB.';
+          const err = document.createElement('span'); err.className = 'form-error';
+        err.setAttribute('role', 'alert'); err.textContent = 'File must be under 5 MB.';
           ccfResume.closest('.form-field').appendChild(err); valid = false;
         }
         if (!valid) return;
 
         const roleField = form.querySelector('#ccf-role');
         const finish = () => {
-          form.innerHTML = '<div class="form-success"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. We\'ll be in touch within 2 business days.</p></div>';
+          form.innerHTML = '<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Application Received!</h4><p>Thank you for applying. We\'ll be in touch within 2 business days.</p></div>';
           lucide.createIcons();
         };
 
@@ -527,6 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         field.classList.add('input-error');
         const err = document.createElement('span');
         err.className = 'form-error';
+        err.setAttribute('role', 'alert');
         err.textContent = msg;
         field.closest('.form-field').appendChild(err);
       }

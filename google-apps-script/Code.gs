@@ -77,7 +77,6 @@ function handleApplication(p) {
     var bytes = Utilities.base64Decode(base64);
     var blob = Utilities.newBlob(bytes, p.resume_type || 'application/octet-stream', p.resume_name);
     var file = folder.createFile(blob);
-    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
     resumeLink = file.getUrl();
   }
 
