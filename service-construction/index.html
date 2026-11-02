@@ -416,11 +416,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input type="hidden" name="source_page" value="Service — Residential Construction" />
           <input type="text" name="website" value="" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true" />
         <div class="form-field">
-          <label for="scf-name">Full Name <span class="form-required">*</span></label>
+          <label for="scf-name">Full Name </label>
           <input id="scf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required />
         </div>
         <div class="form-field">
-          <label for="scf-phone">Phone Number <span class="form-required">*</span></label>
+          <label for="scf-phone">Phone Number </label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
@@ -428,8 +428,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="form-field">
-          <label for="scf-email">Email Address <span class="form-required">*</span></label>
-          <input id="scf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+          <label for="scf-email">Email Address </label>
+          <input id="scf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" />
         </div>
         <div class="form-field">
           <label for="scf-service">Service</label>
@@ -502,8 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!digits) { addErr(phone, 'Phone number is required.'); valid = false; }
         else if (digits.length !== 10) { addErr(phone, 'Enter a valid 10-digit number.'); valid = false; }
         const ev = email.value.trim();
-        if (!ev) { addErr(email, 'Email address is required.'); valid = false; }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev)) { addErr(email, 'Enter a valid email address.'); valid = false; }
+        if (ev && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev)) { addErr(email, 'Enter a valid email address.'); valid = false; }
         if (!valid) return;
         window.bdxSubmitFormLead(form);
         form.innerHTML = '<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We\'ve received your details and will reach out within 24 hours.</p></div>';

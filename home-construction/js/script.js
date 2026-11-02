@@ -118,7 +118,8 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     const okPhone = /^[6-9]\d{9}$/.test(phone.value);
-    const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.value.trim());
+    const emailValue = form.email.value.trim();
+    const okEmail = !emailValue || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailValue);
     phone.closest('.field').classList.toggle('error', !okPhone);
     form.email.closest('.field').classList.toggle('error', !okEmail);
     if (!okPhone){ phone.focus(); return; }

@@ -240,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <input id="pcf-name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" />
         </div>
         <div class="form-field">
-          <label for="pcf-phone">Phone Number <span class="form-required">*</span></label>
+          <label for="pcf-phone">Phone Number </label>
           <div class="phone-input-wrap">
             <span class="phone-prefix">+91</span>
             <div class="phone-divider"></div>
@@ -248,8 +248,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="form-field">
-          <label for="pcf-email">Email address <span class="form-required">*</span></label>
-          <input id="pcf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" required />
+          <label for="pcf-email">Email address </label>
+          <input id="pcf-email" name="email" type="email" autocomplete="email" placeholder="Enter your email address" />
         </div>
         <div class="form-field">
           <label for="pcf-service">Services</label>
@@ -391,8 +391,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!digits) { showError(phone, 'Phone number is required.'); valid = false; }
         else if (digits.length !== 10) { showError(phone, 'Enter a valid 10-digit phone number.'); valid = false; }
         const emailVal = email.value.trim();
-        if (!emailVal) { showError(email, 'Email address is required.'); valid = false; }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError(email, 'Enter a valid email address.'); valid = false; }
+        if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError(email, 'Enter a valid email address.'); valid = false; }
         if (!valid) return;
         window.bdxSubmitFormLead(form);
         form.innerHTML = `<div class="form-success" role="status" aria-live="polite" tabindex="-1"><i data-lucide="circle-check-big" class="form-success-icon"></i><h4>Thank you!</h4><p>We've received your details and will reach out within 24 hours.</p></div>`;
