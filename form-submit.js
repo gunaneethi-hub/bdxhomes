@@ -6,6 +6,7 @@
 // a Web App, paste its /exec URL below.
 (function () {
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxcqeitpE87T1YqRKNm3pad1XeE4pR7QGGmebTG6NQxngpge3WrHapXixIxQLmRzrbR/exec';
+  var THANK_YOU_URL = new URL('thank-you.html', document.currentScript.src).href;
 
   function targetIframe() {
     var iframe = document.getElementById('bdx-form-target');
@@ -56,7 +57,7 @@
     var formTypeField = formEl.querySelector('[name="form_type"]');
     var sourceField = formEl.querySelector('[name="source_page"]');
 
-    return window.bdxSubmitLead({
+    var submitted = window.bdxSubmitLead({
       form_type: formTypeField ? formTypeField.value : 'lead',
       source_page: sourceField ? sourceField.value : document.title,
       name: nameField ? nameField.value.trim() : '',
@@ -64,5 +65,14 @@
       email: emailField ? emailField.value.trim() : '',
       service: serviceField ? serviceField.value : ''
     });
+
+    if (submitted) {
+      // Give the hidden intake form time to start posting before leaving the page.
+      window.setTimeout(function () {
+        window.location.assign(THANK_YOU_URL);
+      }, 500);
+    }
+
+    return submitted;
   };
 })();
